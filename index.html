@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDZ Game Hay</title>
+    <link rel="stylesheet" href="web.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+
+        <h1 class="orange-text">KDZVTK - Game Hay</h1>
+
+        <div class="user-info" id="user-info" onclick="redirectToTaiKhoanHienTai()">
+            <img src="default-avatar.png" alt="Avatar" class="avatar">
+            <span id="accountEmail">Gmail</span>
+            <span class="separator">|</span>
+            <span class="username">Tên đăng nhập</span>
+        </div>
+
+        <div class="top-left-corner">
+            <button id="updateButton" onclick="openUpdatePopup()">Cập nhật 5.0</button>
+        </div>
+
+        <div class="top-right-buttons">
+            <button id="loginButton" onclick="redirectToLoginPage()">Đăng nhập</button>
+            <button id="logoutButton" onclick="logout()" style="display:none;">Đăng xuất</button>
+        </div>
+
+        <div class="game-row">
+            <div class="game-box" id="flappyBird" onclick="redirectToGame1()">
+                <img src="flappybird.png" alt="Flappy Bird">
+                <p>Game Flappy Bird</p>
+            </div>
+            <div class="game-box" id="chessGame" onclick="redirectToGame2()">
+                <img src="chessai.png" alt="Game Cờ Vua AI">
+                <p>Game Cờ Vua AI</p>
+            </div>
+        </div>
+
+        <div class="game-row">
+            <div class="game-box" id="game3" onclick="redirectToGame3()">
+                <img src="chess2.png" alt="Game Cờ vua 2 người">
+                <p>Cờ vua 2 người</p>
+            </div>
+            <div class="game-box" id="game4" onclick="redirectToGame4()">
+                <img src="xoai.png" alt="Game Cờ caro ( X / O ) AI">
+                <p>Cờ caro ( X / O ) AI</p>
+            </div>
+        </div>
+
+        <div class="game-row">
+            <div class="game-box" id="game5" onclick="redirectToGame5()">
+                <img src="xo2.png" alt="Game Cờ caro ( X / O ) 2 người">
+                <p>Cờ caro 2 người</p>
+            </div>
+            <div class="game-box" id="game6" onclick="redirectToGame6()">
+                <img src="ransanmoi.png" alt="Game Rắn săn mồi">
+                <p>Rắn săn mồi</p>
+            </div>
+        </div>
+
+        <div class="game-row">
+            <div class="game-box" id="game5" onclick="redirectToGame7()">
+                <img src="Minesweeper.png" alt="Game Dò mìn">
+                <p>Game Dò mìn</p>
+            </div>
+            <div class="game-box" id="game6" onclick="redirectToApp()">
+                <img src="weather.png" alt="App thời tiết">
+                <p>App thời tiết</p>
+                <p>Lưu ý là sử dụng tên Nước hay thành phố bằng tiếng anh</p>
+            </div>
+        </div>
+
+    <!--    <div class="nghe-nhac">
+            <div class="game-chinh" id="game7" onclick="redirectToNhac()">
+                <img src="Phatnhac.png" alt="Nghe nhạc">
+                <p>Trang web nghe nhạc</p> 
+            </div>
+        </div>
+        // Cái này để cập nhật nhạc sau
+    -->
+        <div class="advertisement">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8028799969402273" crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-8028799969402273"
+                 data-ad-slot="1234567890"
+                 data-ad-format="auto"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <div id="updateModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeUpdatePopup()">&times;</span>
+                <h2>Cập nhật 5.0</h2>
+                <hr>
+                <ul>
+                    <li>Thay đổi giao diện trang web chính</li>
+                    <li>Thêm một tựa game mới là Dò mìn</li>
+                    <li>Loại bỏ trang web nhạc và sẽ cập nhật sau</li>
+                    <li>Cập nhật giao diện đăng nhập và đăng kí</li>
+                    <li>Thêm phần tài khoản</li>
+                    <li>Sửa lại giao diện. chức năng của một số trang web</li>
+                </ul>
+                <hr>
+                <p>Cảm ơn đã trải nghiệm trang web.</p>
+                <button onclick="closeUpdatePopup()">Đóng popup này trong 1 giờ</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="web.js"></script>
+</body>
+</html>

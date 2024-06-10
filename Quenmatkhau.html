@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="Quenmatkhau.css">
+    <title>Quên mật khẩu</title>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="form-container forgot-password" id="forgotPasswordForm">
+            <div class="content">
+                <h1>Quên mật khẩu</h1>
+                <input type="email" id="forgotPasswordGmail" placeholder="Email">
+                <input type="text" id="forgotPasswordCode" placeholder="Mã dự phòng">
+                <input type="password" id="forgotPasswordNewPassword" placeholder="Mật khẩu mới">
+                <div id="forgotPasswordMessage" style="color: red;"></div>
+                <button type="button" onclick="resetPassword()">Đặt lại mật khẩu</button>
+                <button type="button" onclick="goToLoginForm()">Quay lại đăng nhập</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="Quenmatkhau.js"></script>
+</body>
+
+</html>

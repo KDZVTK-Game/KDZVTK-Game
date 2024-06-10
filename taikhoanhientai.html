@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin tài khoản</title>
+    <link rel="stylesheet" href="taikhoanhientai.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="account-header">Dữ liệu tài khoản</h1>
+        <div class="account-info">
+            <img src="default-avatar.png" alt="Avatar" class="avatar">
+            <p>Tên tài khoản: <span id="accountName"></span></p>
+            <p>Email tài khoản: <span id="accountEmail"></span></p>
+            <p>Mật khẩu tài khoản: <span id="accountPassword"></span></p>
+            <p>Mã dự phòng: <span id="accountBackupCode"></span></p>
+            <button onclick="showUpdateForm('name')">Đổi tên</button>
+            <button onclick="showUpdateForm('password')">Đổi mật khẩu</button>
+            <button onclick="showUpdateForm('backupCode')">Đổi mã dự phòng</button>
+            <button onclick="Quayvetrang()">Quay về trang chính</button>
+            <button id="adminButton" style="display:none;" onclick="redirectToAdmin()">Trở về Trang admin</button>
+        </div>
+        </div>
+        <div id="updateForm" style="display:none;">
+            <input type="text" id="newValue" placeholder="Nhập giá trị mới">
+            <button onclick="updateAccountInfo()">Cập nhật</button>
+        </div>
+        <p id="registerMessage" style="color: red;"></p>
+        <div class="background-update">
+            <h2>Đổi ảnh đại diện</h2>
+            <input type="file" id="backgroundInput">
+            <button onclick="updateBackground()">Cập nhật ảnh đại diện</button>
+        </div>
+    </div>
+    <script src="taikhoanhientai.js"></script>
+</body>
+</html>

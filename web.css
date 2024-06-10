@@ -1,0 +1,338 @@
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* General styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif; /* Use Roboto font */
+    background-color: #08b0f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh; /* Ensure minimum height is full viewport height */
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    margin-top: 4vh;
+    min-width: 80%; /* Ensure container has a minimum width */
+}
+
+.orange-text {
+    color: rgb(247, 162, 4);
+    margin-top: 5vh; /* Reduce margin-top to fit better on high-resolution screens */
+    font-weight: 700; /* Make the text bold */
+}
+
+/* Red text area */
+.user-info {
+    color: rgb(255, 64, 0);
+    margin-top: 2vh;
+    margin-bottom: 5vh;
+    font-weight: 700; /* Make the text bold */
+    font-size: 30px;
+}
+
+/* Corner buttons */
+.corner-buttons {
+    position: fixed;
+    top: 2vw;
+    left: 2vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.corner-buttons button {
+    margin-bottom: 2vw;
+    background-color: #4CAF50;
+    color: white;
+    padding: 1vw;
+    border: none;
+    cursor: pointer;
+    font-weight: 700; /* Make the text bold */
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.corner-buttons button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+}
+
+/* Top-right buttons */
+.top-right-buttons {
+    position: fixed;
+    top: 2vw;
+    right: 2vw;
+    display: flex;
+    flex-direction: row;
+    z-index: 2;
+}
+
+.top-right-buttons button {
+    margin-right: 2vw;
+    padding: 1vw;
+    background-color: #ff9800; /* Change background color to a bright color */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 700; /* Make the text bold */
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.top-right-buttons button:hover {
+    background-color: #e68900; /* Darken color on hover */
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+}
+
+.top-right-buttons button,
+#updateButton {
+    font-size: 1.5em;
+}
+
+/* Top-left corner button */
+.top-left-corner {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+#updateButton {
+    background-color: #3f51b5; /* Change background color to a different bright color */
+    color: white;
+    padding: 1vw;
+    border: none;
+    cursor: pointer;
+    font-weight: 700; /* Make the text bold */
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    font-size: 1.5em;
+    margin-top: 1vh;
+}
+
+#updateButton:hover {
+    background-color: #303f9f; /* Darken color on hover */
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+}
+
+/* Music section */
+.nghe-nhac {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10vh auto 20vh auto; /* Center align the section */
+    max-width: 40vw;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+    overflow: hidden;
+    background-color: #ffeb3b; /* Change background color to a bright color */
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+.nghe-nhac img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.nghe-nhac p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #1cc90c;
+    background-color: #071f3a;
+    padding: 3vw;
+    margin: 1vw;
+    font-weight: 700; /* Make the text bold */
+}
+
+/* Game rows and boxes */
+.game-row {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 2vh;
+    margin-bottom: 0px;
+    min-width: 80%; /* Ensure game rows have a minimum width */
+}
+
+.game-box {
+    background-color: #fff;
+    padding: 3vw;
+    margin: 1vw;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+    max-width: 15vw;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    background-color: #4CAF50; /* Change background color to a bright color */
+    border-radius: 8px; /* Add rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+.game-box:hover {
+    transform: scale(1.1);
+    background-color: #45a049; /* Darken color on hover */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Increase shadow on hover */
+}
+
+.game-box img {
+    width: 100%;
+    height: 100%;
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+}
+
+/* Modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    border-radius: 10px;
+    position: relative; /* Add relative positioning */
+}
+
+.modal-content p {
+    color: red;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #555;
+}
+
+/* Other styling */
+h2 {
+    color: #18fd23;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 700; /* Make the text bold */
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    line-height: 1.6;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #2508ca;
+    font-weight: 700; /* Make the text bold */
+}
+
+hr {
+    border: 0.5px solid #130b79;
+    margin: 20px 0;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    font-weight: 700; /* Make the text bold */
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 700; /* Make the text bold */
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.fade {
+    animation: fade 0
+}
+
+h1{
+    margin-top: 10px;
+    font-size: 100px;
+}
+
+.user-info {
+    background-color: #FFA500; /* Màu cam nhạt */
+    color: white; /* Chữ màu trắng */
+    font-weight: bold; /* Chữ in đậm */
+    padding: 15px; /* Tăng padding */
+    border-radius: 12px; /* Tăng border-radius */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Sửa lỗi CSS */
+    width: fit-content; /* Thêm để chỉ chiếm diện tích vừa đủ */
+    margin: auto; /* Căn giữa */
+    font-size: 18px; /* Tăng kích thước chữ tổng thể */
+}
+
+.user-info .avatar {
+    width: 60px; /* Tăng kích thước ảnh đại diện */
+    height: 60px; /* Tăng kích thước ảnh đại diện */
+    border-radius: 50%;
+    margin-right: 15px; /* Tăng khoảng cách giữa ảnh và chữ */
+}
+
+.user-info .separator {
+    margin: 0 10px; /* Tạo khoảng cách xung quanh dấu phân cách */
+}
+
+.user-info:hover {
+    background-color: #e68900; /* Màu cam đậm khi hover */
+}
+
+.username {
+    font-size: 18px; /* Tăng kích thước chữ */
+}
+
+.avatar {
+    width: 12vw; /* 12% of the viewport width */
+    height: auto; /* maintain aspect ratio */
+    max-width: 120px; /* maximum width */
+    min-width: 60px; /* minimum width */
+    border-radius: 50%; /* make it circular */
+}
