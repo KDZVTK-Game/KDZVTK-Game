@@ -8,6 +8,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    min-width: 20vw;
 }
 
 .container {
@@ -83,14 +84,18 @@ body {
 
 .top-right-buttons button,
 #updateButton {
-    font-size: 1.5em;
+    font-size: 1rem;
+    margin-top: 1vh;
 }
 
 /* Top-left corner button */
 .top-left-corner {
     position: fixed;
-    top: 10px;
-    left: 10px;
+    top: 2vw;
+    left: 2vw;
+    display: flex;
+    flex-direction: row;
+    z-index: 2;
 }
 
 #updateButton {
@@ -103,7 +108,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    font-size: 1.5em;
+    font-size: 1rem;
     margin-top: 1vh;
 }
 
@@ -293,7 +298,7 @@ button:hover {
 
 h1 {
     margin-top: 10px;
-    font-size: 70px;
+    font-size: 4rem;
 }
 
 .user-info {
@@ -308,14 +313,18 @@ h1 {
     justify-content: center;
     width: fit-content;
     margin: auto;
-    font-size: 18px;
+    font-size: 3vw;
 }
 
 .user-info .avatar {
     width: 50vw;
-    height: 10vh;
+    height: 30vw;
     border-radius: 50%;
     margin-right: 15px;
+    min-width: 10vw;
+    min-height: 10vw;
+    max-width: 15vw;
+    max-height: 10vw;
 }
 
 .user-info .separator {
@@ -327,7 +336,8 @@ h1 {
 }
 
 .username {
-    font-size: 18px;
+    font-size:3vw;
+    font-weight: bold;
 }
 
 .avatar {

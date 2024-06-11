@@ -33,6 +33,7 @@
         y: 0
     };
 
+
     function resetGame() {
         score = 0;
         scoreShow.innerHTML = "Score: " + score;
@@ -46,6 +47,10 @@
         bird.velocity = 0;
         isGameOver = false;
         draw();
+    }
+    
+    function Vetrangchinh() {
+        window.location.href = "index.html" ;
     }
 
     function draw() {
@@ -114,3 +119,5 @@
     });
 
     resetGame();
+
+    

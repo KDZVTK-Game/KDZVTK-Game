@@ -14,6 +14,7 @@
             align-items: center;
             height: 100vh;
             background-color: #ADD8E6; /* Màu xanh dương nhạt */
+            
         }
         #back-button {
             width: 100px;
@@ -26,7 +27,7 @@
             font-size: 16px;
             margin-top: 20px;
         }
-        #score, #message {
+        #score {
             background-color: yellow;
             padding: 10px;
             border-radius: 5px;
@@ -34,8 +35,22 @@
             text-align: center;
         }
         #message {
-            background-color: red;
-            color: white;
+            color: rgb(92, 0, 240);
+            min-width: 4vw;
+            min-height: 1px;
+            max-width: 50vw;
+            background-color: yellow;
+            padding: 30px;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: center;
+        }
+        #vetrangchinh {
+            background-color: rgb(51, 255, 0);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: center;
         }
     </style>
 </head>
@@ -43,7 +58,7 @@
     <canvas id="gamezone" width="900" height="500"></canvas>
     <p id="score">Score: 0</p>
     <p id="message"></p>
-    <button id="back-button" onclick="resetGame()">Hard core</button>
+    <button id="vetrangchinh" onclick="Vetrangchinh()">Về trang chính</button> 
     <script src="flappybird.js"></script>
 </body>
 </html>
