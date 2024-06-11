@@ -118,7 +118,7 @@ function redirectToGame7() {
 function redirectToApp() {
   var loggedInUser = localStorage.getItem("loggedInUser");
   if (isLoggedIn(loggedInUser)) {
-      window.location.href = "Weather.html";
+      window.location.href = "weather.html";
   } else {
       alert("Vui lòng đăng nhập để Để sử dụng App thời tiết");
       redirectToLoginPage();
