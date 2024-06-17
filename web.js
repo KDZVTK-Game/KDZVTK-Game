@@ -1,20 +1,26 @@
 document.addEventListener("DOMContentLoaded", function() {
   updateUserInfo();
   openUpdatePopup();
+
+  // Áp dụng màu nền từ localStorage nếu có
+  let savedGradient = localStorage.getItem("backgroundGradient");
+  if (savedGradient) {
+      document.getElementsByTagName("BODY")[0].style.backgroundImage = savedGradient;
+  }
 });
 
 document.addEventListener('DOMContentLoaded', () => {
   const gmail = localStorage.getItem("loggedInUser"); // Lấy giá trị gmail đã đăng nhập từ localStorage
   if (gmail) {
-    document.getElementById('accountEmail').innerText = gmail;
-    // Ẩn nút Đăng nhập và hiển thị nút Đăng xuất nếu đã đăng nhập
-    document.getElementById('loginButton').style.display = 'none';
-    if (gmail !== "Kietadmin@gmail.com") {
-      document.getElementById('logoutButton').style.display = 'block';
-    }
+      document.getElementById('accountEmail').innerText = gmail;
+      // Ẩn nút Đăng nhập và hiển thị nút Đăng xuất nếu đã đăng nhập
+      document.getElementById('loginButton').style.display = 'none';
+      if (gmail !== "Kietadmin@gmail.com") {
+          document.getElementById('logoutButton').style.display = 'block';
+      }
   } else {
-    document.getElementById('logoutButton').style.display = 'none';
-    document.getElementById('loginButton').style.display = 'block';
+      document.getElementById('logoutButton').style.display = 'none';
+      document.getElementById('loginButton').style.display = 'block';
   }
 });
 
@@ -62,7 +68,7 @@ function redirectToGame2() {
   } else {
       alert("Hãy đăng kí và đăng nhập để có trải nghiệm tốt nhất");
       window.location.href = "chessai.html";
-    }
+  }
 }
 
 function redirectToGame3() {
@@ -115,25 +121,45 @@ function redirectToGame7() {
   }
 }
 
-function redirectToApp() {
+function redirectToGame8() {
   var loggedInUser = localStorage.getItem("loggedInUser");
   if (isLoggedIn(loggedInUser)) {
-      window.location.href = "weather.html";
+      window.location.href = "Thuthachdonho.html";
+  } else {
+      alert("Hãy đăng kí và đăng nhập để có trải nghiệm tốt nhất");
+      window.location.href = "Thuthachdonho.html";
+  }
+}
+
+function redirectToApp1() {
+  var loggedInUser = localStorage.getItem("loggedInUser");
+  if (isLoggedIn(loggedInUser)) {
+      window.location.href = "Weather.html";
   } else {
       alert("Vui lòng đăng nhập để Để sử dụng App thời tiết");
       redirectToLoginPage();
   }
 }
 
-function redirectToNhac() {
+function redirectToApp2() {
   var loggedInUser = localStorage.getItem("loggedInUser");
   if (isLoggedIn(loggedInUser)) {
-      window.location.href = "Phatnhac.html";
+      window.location.href = "Tocdogo.html";
   } else {
-      alert("Vui lòng đăng nhập để nghe nhạc.");
-      redirectToLoginPage();
+      alert("Hãy đăng kí và đăng nhập để có trải nghiệm tốt nhất");
+      window.location.href = "Tocdogo.html";
   }
 }
+
+//function redirectToNhac() {
+  //var loggedInUser = localStorage.getItem("loggedInUser");
+  //if (isLoggedIn(loggedInUser)) {
+      //window.location.href = "Phatnhac.html";
+  //} else {
+      //alert("Vui lòng đăng nhập để nghe nhạc.");
+      //redirectToLoginPage();
+  //}
+//}
 
 var modal = document.getElementById("updateModal");
 
@@ -142,21 +168,21 @@ var updateButton = document.getElementById("updateButton");
 var closeBtn = document.getElementsByClassName("close")[0];
 
 updateButton.onclick = function() {
-    modal.style.display = "block";
+  modal.style.display = "block";
 }
 
 closeBtn.onclick = function() {
-    modal.style.display = "none";
+  modal.style.display = "none";
 }
 
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
+  if (event.target == modal) {
+      modal.style.display = "none";
+  }
 }
 
 function closeUpdatePopup() {
-    modal.style.display = "none";
+  modal.style.display = "none";
 }
 
 function openUpdatePopup() {
@@ -178,6 +204,12 @@ window.onload = function() {
       setTimeout(function() {
           localStorage.removeItem("modalDismissed");
       }, 3600000); 
+  }
+
+  // Áp dụng màu nền từ localStorage nếu có
+  let savedGradient = localStorage.getItem("backgroundGradient");
+  if (savedGradient) {
+      document.getElementsByTagName("BODY")[0].style.backgroundImage = savedGradient;
   }
 };
 
@@ -204,4 +236,8 @@ function redirectToAdminPage() {
 function logout() {
   localStorage.removeItem("loggedInUser");
   window.location.href = "dangnhapdangki.html";
+}
+
+function redirectToThayNen() {
+  window.location.href = "Nen.html"
 }

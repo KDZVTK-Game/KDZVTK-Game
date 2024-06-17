@@ -347,3 +347,28 @@ h1 {
     min-width: 50px;
     border-radius: 50%;
 }
+
+.nen {
+    background-color: #FFA500;
+    color: white;
+    font-weight: bold;
+    padding: 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin: auto;
+    font-size: 3vw; /* Kích thước font chữ như .user-info */
+    margin-top: 20px;
+    min-width: 20vw;
+    min-height: 10vw;
+    max-width: 30vw;
+    max-height: 10vw;
+}
+
+.nen:hover {
+    background-color: #e68900;
+}
+
