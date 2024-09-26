@@ -78,17 +78,21 @@
 
     <!-- Form tạo mới tài khoản -->
     <form id="createAccountForm" onsubmit="return createAccount()">
-      <label for="newGmail">Gmail:</label>
-      <input type="email" id="newGmail" required>
+      <label for="registerName">Tên:</label>
+      <input type="text" id="registerName" required>
       <br>
-      <label for="newPassword">Mật khẩu:</label>
-      <input type="password" id="newPassword" required>
-      <span class="show-password" onclick="togglePassword('newPassword')">Hiện mật khẩu</span>
+      <label for="registerGmail">Gmail:</label>
+      <input type="email" id="registerGmail" required>
       <br>
-      <label for="verificationCode">Mã dự phòng:</label>
-      <input type="text" id="verificationCode" required>
+      <label for="registerPassword">Mật khẩu:</label>
+      <input type="password" id="registerPassword" required>
+      <span class="show-password" onclick="togglePassword('registerPassword')">Hiện mật khẩu</span>
+      <br>
+      <label for="verifyCode">Mã dự phòng:</label>
+      <input type="text" id="verifyCode" required>
       <br>
       <button type="submit">Tạo mới tài khoản</button>
+      <p id="registerMessage" style="color: red;"></p>
     </form>
 
     <!-- Danh sách tài khoản -->
@@ -97,6 +101,7 @@
       <thead>
         <tr>
           <th>Gmail</th>
+          <th>Tên tài khoản</th>
           <th>Mật khẩu</th>
           <th>Mã dự phòng</th>
           <th>Thao tác</th>

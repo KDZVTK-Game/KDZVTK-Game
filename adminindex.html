@@ -18,17 +18,15 @@
             <span class="separator">|</span>
             <span class="username">Tên đăng nhập</span>
         </div>
-            
 
-        <div class="top-left-corner">
-            <button id="updateButton" onclick="openUpdatePopup()">Cập nhật 5.0</button>
+        <div class="nen" onclick="redirectToThayNen()">
+            <img src="Nen.jpg" alt="Nen" class="avatar">
+            <span class="Nen">Thay nền</span>
         </div>
 
-
-
         <div class="top-right-buttons">
-            <button onclick="redirectToLoginPage()">Đăng nhập</button>
-            <button onclick="redirectToAdminPage()">Về trang Admin</button>
+            <button id="logoutButton" onclick="redirectToAdminPage()">Trở về trang admin</button>
+            <button id="logoutButton" onclick="logout()">Đăng xuất</button>
         </div>
 
         <div class="game-row">
@@ -67,53 +65,41 @@
         <div class="game-row">
             <div class="game-box" id="game5" onclick="redirectToGame7()">
                 <img src="Minesweeper.png" alt="Game Dò mìn">
-                <p>Cờ caro 2 người</p>
+                <p>Game Dò mìn</p>
             </div>
-            <div class="game-box" id="game6" onclick="redirectToApp()">
+            <div class="game-box" id="game6" onclick="redirectToApp1()">
                 <img src="weather.png" alt="App thời tiết">
                 <p>App thời tiết</p>
-                <p>Lưu ý là sử dụng tên Nước hay thành phố bằng tiếng anh</p>
             </div>
         </div>
 
-        <div class="nghe-nhac">
-            <div class="game-chinh" id="game7" onclick="redirectToNhac()">
-                <img src="Phatnhac.png" alt="Nghe nhạc">
-                <p>Trang web nghe nhạc</p>
+        <div class="game-row">
+            <div class="game-box" id="game5" onclick="redirectToApp2()">
+                <img src="Tocdogo.jpg" alt="Tốc độ gõ">
+                <p>App Tốc độ gõ</p>
             </div>
-        </div>
-
-        <div class="advertisement">
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8028799969402273" crossorigin="anonymous"></script>
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-8028799969402273"
-                 data-ad-slot="1234567890"
-                 data-ad-format="auto"></ins>
-            <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
+            <div class="game-box" id="game6" onclick="redirectToGame8()">
+                <img src="Thuthachdonho.jpg" alt="Thử Thách độ nhớ">
+                <p>Game thử thách độ nhớ</p>
+            </div>
         </div>
 
         <div id="updateModal" class="modal">
             <div class="modal-content">
                 <span class="close" onclick="closeUpdatePopup()">&times;</span>
-                <h2>Cập nhật 5.0</h2>
+                <h2>Cập nhật 5.6</h2>
                 <hr>
                 <ul>
-                    <li>Thay đổi giao diện trang web chính</li>
-                    <li>Thêm một tựa game mới là Dò mìn</li>
-                    <li>Cập nhật Trang web nhạc</li>
-                    <li>Cập nhật giao diện đăng nhập và đăng kí</li>
-                    <li>Thêm phần tài khoản</li>
+                    <li>Loại bỏ trang web nhạc và sẽ cập nhật sau</li>
+                    <li>Đang từ từ loại bỏ một số lỗi cho một số trang web mới được cập nhật vào game</li>
                 </ul>
                 <hr>
                 <p>Cảm ơn đã trải nghiệm trang web.</p>
-                <button onclick="closeUpdatePopup()">Đóng popup này trong 1 giờ</button>
             </div>
         </div>
 
     </div>
+
     <script src="web.js"></script>
 </body>
 </html>

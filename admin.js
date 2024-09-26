@@ -12,45 +12,81 @@ function Quayvetrangchinh() {
 }
 
 function createAccount() { 
-    let newGmail = document.getElementById("newGmail").value;
-    let newPassword = document.getElementById("newPassword").value;
-    let verificationCode = document.getElementById("verificationCode").value;
+    let name = document.getElementById("registerName").value.trim();
+    let gmail = document.getElementById("registerGmail").value.trim();
+    let verifyCode = document.getElementById("verifyCode").value.trim();
+    let password = document.getElementById("registerPassword").value.trim();
 
-    // Kiểm tra xem tài khoản đã tồn tại chưa
-    if (localStorage.getItem(newGmail)) {
-        alert("Tài khoản đã tồn tại");
+    if (name === "") {
+        document.getElementById("registerMessage").innerText = "Tên không được để trống";
         return false;
     }
- 
-    // Lưu tài khoản mới vào localStorage
-    localStorage.setItem(newGmail, newPassword);
 
-    // Hiển thị lại danh sách tài khoản
-    displayAccountList();
+    let verifyCodeRegex = /^[a-zA-Z0-9]{4,8}$/;
+    if (!verifyCodeRegex.test(verifyCode)) {
+        document.getElementById("registerMessage").innerText = "Mã dự phòng cần ít nhất từ 4 số trở lên và 8 số trở xuống";
+        return false;
+    }
 
-    alert("Tạo mới tài khoản thành công");
-    return false;
-    
+    if (password.length < 6 || password.length > 16) {
+        document.getElementById("registerMessage").innerText = "Mật khẩu phải từ 6 đến 16 kí tự";
+        return false;
+    }
+
+    let lowerCase = /[a-z]/;
+    let upperCase = /[A-Z]/;
+    let numeric = /[0-9]/;
+    let specialChar = /[!@#$%^&*(),.?":{}|<>]/;
+
+    let typesCount = 0;
+    if (lowerCase.test(password)) typesCount++;
+    if (upperCase.test(password)) typesCount++;
+    if (numeric.test(password)) typesCount++;
+    if (specialChar.test(password)) typesCount++;
+
+    if (typesCount < 3) {
+        document.getElementById("registerMessage").innerText = "Mật khẩu cần phải có ít nhất 3 trong các điều kiện là chữ thường, số, chữ hoa, kí tự đặc biệt";
+        return false;
+    }
+
+    let savedPassword = localStorage.getItem(gmail);
+    if (savedPassword) {
+        document.getElementById("registerMessage").innerText = "Gmail đã tồn tại.";
+        return false;
+    } else {
+        localStorage.setItem(gmail, password);
+        localStorage.setItem(gmail + "_verificationCode", verifyCode);
+        localStorage.setItem(gmail + "_name", name);
+        alert("Đăng kí thành công");
+        displayAccountList();
+        return false;
+    }
 }
 
 function displayAccountList() {
     let accountList = document.getElementById("accountList");
-    accountList.innerHTML = ""; // Xóa danh sách hiện tại
+    accountList.innerHTML = ""; 
 
-    // Lấy danh sách tất cả tài khoản từ localStorage
     for (let i = 0; i < localStorage.length; i++) {
         let key = localStorage.key(i);
-        if (key !== "loggedInUser" && !key.endsWith("_verificationCode")) {
+
+        if (key !== "loggedInUser" && !key.endsWith("_verificationCode") && !key.endsWith("_avatar") && !key.endsWith("_name") && key.includes("@gmail")) {
+            let name = localStorage.getItem(key + "_name");
             let row = accountList.insertRow();
             let cell1 = row.insertCell(0);
             let cell2 = row.insertCell(1);
             let cell3 = row.insertCell(2);
             let cell4 = row.insertCell(3);
+            let cell5 = row.insertCell(4);
+
             cell1.textContent = key;
-            cell2.textContent = localStorage.getItem(key);
-            cell3.textContent = localStorage.getItem(key + "_verificationCode") || "N/A";
-            cell4.innerHTML = `<button onclick="changePassword('${key}')">Đổi mật khẩu</button>
-                               <button onclick="changeVerificationCode('${key}')">Đổi mã dự phòng</button>`;
+            cell2.textContent = name || "N/A";
+            cell3.textContent = localStorage.getItem(key);
+            cell4.textContent = localStorage.getItem(key + "_verificationCode") || "N/A";
+            cell5.innerHTML = `<button onclick="changePassword('${key}')">Đổi mật khẩu</button>
+                               <button onclick="changeVerificationCode('${key}')">Đổi mã dự phòng</button>
+                               <button onclick="changeAccountName('${key}')">Đổi tên tài khoản</button>
+                               <button onclick="deleteAccount('${key}')">Xóa</button>`;
         }
     }
 }
@@ -69,6 +105,25 @@ function changePassword(gmail) {
     if (newPassword !== null) {
         localStorage.setItem(gmail, newPassword);
         alert("Thay đổi mật khẩu thành công");
+        displayAccountList();
+    }
+}
+
+function changeAccountName(gmail) {
+    let newName = prompt(`Nhập tên mới cho tài khoản ${gmail}`);
+    if (newName !== null) {
+        localStorage.setItem(gmail + "_name", newName);
+        alert("Thay đổi tên tài khoản thành công");
+        displayAccountList();
+    }
+}
+
+function deleteAccount(gmail) {
+    if (confirm(`Bạn có chắc muốn xóa tài khoản ${gmail} không?`)) {
+        localStorage.removeItem(gmail);
+        localStorage.removeItem(gmail + "_verificationCode");
+        localStorage.removeItem(gmail + "_name");
+        alert(`Đã xóa tài khoản ${gmail}`);
         displayAccountList();
     }
 }

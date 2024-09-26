@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     updateUserInfo();
+    displayAccountList();
 });
 
 const registerBtn = document.getElementById('register');
@@ -68,7 +69,7 @@ function register() {
         localStorage.setItem(gmail + "_verificationCode", verifyCode);
         localStorage.setItem(gmail + "_name", name);
         alert("Đăng kí thành công");
-        window.location.href = "dangnhapdangki.html";
+        window.location.reload()
         return false;
     }
 }
@@ -78,7 +79,7 @@ function login() {
     let gmail = document.getElementById("loginGmail").value.trim();
     let password = document.getElementById("loginPassword").value.trim();
 
-    if (gmail === "Kietadmin@gmail.com" && password === "Kietadmin2009") {
+    if (gmail === "Kietadmin@gmail.com" && password === "Kiet#admin@2009*10/2k") {
         alert("Đăng nhập thành công với tài khoản admin");
         // Lưu thông tin tài khoản admin vào localStorage
         localStorage.setItem("loggedInUser", gmail);
@@ -99,7 +100,6 @@ function login() {
         return false;
     }
 }
-
 
 // Chuyển đổi hiển thị mật khẩu
 function togglePassword(inputId) {
@@ -126,6 +126,54 @@ document.getElementById("register").addEventListener("click", function () {
     document.getElementById("container").classList.add("right-panel-active");
 });
 
+// Chuyển về trang chính
 function Vetrangchinh() {
-    window.location.href = "index.html" ;
+    window.location.href = "index.html";
+}
+
+// Hiển thị danh sách tài khoản
+function displayAccountList() {
+    let accountList = document.getElementById("accountList");
+    accountList.innerHTML = ""; // Xóa danh sách hiện tại
+
+    // Lấy danh sách tất cả tài khoản từ localStorage
+    for (let i = 0; i < localStorage.length; i++) {
+        let key = localStorage.key(i);
+
+        // Kiểm tra nếu key không phải là "loggedInUser" và không kết thúc bằng "_verificationCode" và không có đuôi "_avatar" và không có đuôi "_name"
+        if (key !== "loggedInUser" && !key.endsWith("_verificationCode") && !key.endsWith("_avatar") && !key.endsWith("_name") && key.includes("@gmail")) {
+            let displayName = key;
+            let emailParts = key.split('@')[0].split('.');
+            if (emailParts.length > 1 && key.endsWith('_name')) {
+                let baseEmail = emailParts.slice(0, -1).join('.') + '@gmail.com';
+                displayName = localStorage.getItem(baseEmail + "_name") || emailParts.slice(0, -1).join('.');
+            }
+            
+            let row = accountList.insertRow();
+            let cell1 = row.insertCell(0);
+            let cell2 = row.insertCell(1);
+            let cell3 = row.insertCell(2);
+            let cell4 = row.insertCell(3);
+            let cell5 = row.insertCell(4);
+
+            cell1.textContent = key;
+            cell2.textContent = displayName;
+            cell3.textContent = localStorage.getItem(key);
+            cell4.textContent = localStorage.getItem(key + "_verificationCode") || "N/A";
+            cell5.innerHTML = `<button onclick="changePassword('${key}')">Đổi mật khẩu</button>
+                               <button onclick="changeVerificationCode('${key}')">Đổi mã dự phòng</button>
+                               <button onclick="deleteAccount('${key}')">Xóa</button>`;
+        }
+    }
+}
+
+// Xóa tài khoản
+function deleteAccount(gmail) {
+    if (confirm(`Bạn có chắc muốn xóa tài khoản ${gmail} không?`)) {
+        localStorage.removeItem(gmail);
+        localStorage.removeItem(gmail + "_verificationCode");
+        localStorage.removeItem(gmail + "_name");
+        alert(`Đã xóa tài khoản ${gmail}`);
+        displayAccountList();
+    }
 }
