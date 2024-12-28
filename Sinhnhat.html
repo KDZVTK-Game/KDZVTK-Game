@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Happy Birthday Card!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #f3c5fd, #b3e8ff);
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            overflow: hidden;
+        }
+
+        .card {
+            position: relative;
+            width: 350px;
+            height: 500px;
+            background: linear-gradient(145deg, #ffcbf2, #f3c5fd);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease;
+            cursor: pointer;
+        }
+
+        .card.open {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 20px;
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, #f6d1fc, #b5deff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: white;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .card-back {
+            background: white;
+            transform: rotateY(180deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .letter {
+            text-align: center;
+            font-size: 20px;
+            color: #444;
+        }
+
+        .blow-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background: #ff99c8;
+            border: none;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .blow-button:hover {
+            background: #f15bb5;
+        }
+
+        .cake-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+            display: flex; /* Đảm bảo tất cả phần tử con được căn giữa */
+            flex-direction: column; /* Căn các phần tử dọc */
+            justify-content: center; /* Căn giữa theo chiều dọc */
+            align-items: center; /* Căn giữa theo chiều ngang */
+        }
+
+
+        .cake-container.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .cake {
+            width: 300px;
+            height: 200px;
+            background: linear-gradient(135deg, #ff99c8, #f15bb5);
+            border-radius: 20px;
+            position: relative;
+            top: 0; /* Reset các giá trị vị trí cũ */
+            left: 0; /* Reset các giá trị vị trí cũ */
+            margin: 0; /* Loại bỏ khoảng cách margin cũ */
+        }
+
+
+        .cake-top {
+            position: absolute;
+            top: -30px;
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(135deg, #ffffff, #ff99c8);
+            border-radius: 50%;
+        }
+
+        .candle {
+            position: absolute;
+            top: -90px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 80px;
+            background: #fff;
+            border-radius: 10px;
+        }
+
+        .flame {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 30px;
+            background: radial-gradient(circle, #ffd60a, #ff7f00);
+            border-radius: 50% 50% 20% 20%;
+            animation: flicker 0.3s infinite alternate;
+        }
+
+        .wishes {
+            font-size: 28px;
+            color: #555;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        @keyframes flicker {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.2); }
+        }
+
+        /* Mặc định (Máy tính) */
+.card {
+    width: 350px;
+    height: 500px;
+}
+
+.cake-container .cake {
+    width: 300px;
+    height: 200px;
+}
+
+/* Điện thoại (màn hình dưới 600px) */
+@media (max-width: 600px) {
+    .card {
+        width: 250px;
+        height: 350px;
+    }
+
+    .card-front, .card-back {
+        font-size: 18px;
+    }
+
+    .blow-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .cake-container .cake {
+        width: 200px;
+        height: 150px;
+    }
+
+    .cake-container .wishes {
+        font-size: 20px;
+    }
+}
+
+/* Máy tính bảng (màn hình từ 601px đến 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .card {
+        width: 300px;
+        height: 450px;
+    }
+
+    .card-front, .card-back {
+        font-size: 20px;
+    }
+
+    .blow-button {
+        font-size: 16px;
+        padding: 10px 18px;
+    }
+
+    .cake-container .cake {
+        width: 250px;
+        height: 175px;
+    }
+
+    .cake-container .wishes {
+        font-size: 24px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-front">
+            Bấm để mở
+        </div>
+        <div class="card-back">
+            <div class="letter">
+                <h2>Chúc mừng sinh nhật! 🎉</h2>
+                <p>Nhấp vào nút bên dưới để thực hiện một điều ước!</p>
+                <button class="blow-button">Tạo một điều ước! 🎂</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cake-container">
+        <div class="cake">
+            <div class="cake-top"></div>
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+        </div>
+        <div class="wishes">Tất cả điều ước của bạn sẽ thành sự thật! 🎉</div>
+    </div>    
+
+    <script>
+        const card = document.querySelector('.card');
+        const cakeContainer = document.querySelector('.cake-container');
+        const blowButton = document.querySelector('.blow-button');
+        const flame = document.querySelector('.flame');
+        const wishes = document.querySelector('.wishes');
+
+        let candleClicks = 0;
+
+        // Lật thiệp
+        card.addEventListener('click', () => {
+            card.classList.add('open');
+        });
+
+        // Nhấn nút "Make a Wish"
+        blowButton.addEventListener('click', () => {
+            candleClicks += 1;
+
+            if (candleClicks === 1) {
+                blowButton.textContent = "Bấm lại một làn nữa! 🎂";
+            } else if (candleClicks === 2) {
+                // Hiển thị bánh kem, ẩn thiệp
+                cakeContainer.classList.add('show');
+                card.style.opacity = '0';
+                card.style.visibility = 'hidden';
+
+                // Tắt nến và hiển thị lời chúc
+                setTimeout(() => {
+                    flame.style.display = 'none';
+                    wishes.style.opacity = '1';
+                }, 1000);
+
+                blowButton.textContent = "🎉 Wish Made!";
+                blowButton.disabled = true;
+            }
+        });
+    </script>
+</body>
+</html>

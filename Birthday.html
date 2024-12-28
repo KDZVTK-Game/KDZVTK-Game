@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Sinh Nhật BA!</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+
+        .birthday-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #ff6b6b;
+            font-size: 2.5em;
+            margin-bottom: 0.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .message {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 2em;
+        }
+
+        .cake {
+            width: 100px;
+            height: 80px;
+            background: #ffd700;
+            border-radius: 10px;
+            position: relative;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .cake::before {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 20px;
+            background: #ff9494;
+            top: -10px;
+            left: -10px;
+            border-radius: 10px;
+        }
+
+        .candle {
+            width: 8px;
+            height: 35px;
+            background: #ff3333;  /* Nến màu đỏ */
+            position: absolute;
+            top: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 4px;
+        }
+
+        .flame {
+            width: 15px;
+            height: 30px;
+            background: #ff6b6b;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 50% 50% 20% 20%;
+            animation: flicker 0.5s infinite alternate;
+            transition: all 0.3s ease;
+        }
+
+        @keyframes flicker {
+            0% { transform: translateX(-50%) scale(1); }
+            100% { transform: translateX(-50%) scale(0.9); }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+        }
+
+        @keyframes fall {
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+
+        .click-message {
+            position: absolute;
+            bottom: 20px;
+            color: white;
+            font-size: 1.2em;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Mặc định (Máy tính) */
+.card {
+    width: 350px;
+    height: 500px;
+}
+
+.cake-container .cake {
+    width: 300px;
+    height: 200px;
+}
+
+/* Điện thoại (màn hình dưới 600px) */
+@media (max-width: 600px) {
+    .card {
+        width: 250px;
+        height: 350px;
+    }
+
+    .card-front, .card-back {
+        font-size: 18px;
+    }
+
+    .blow-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .cake-container .cake {
+        width: 200px;
+        height: 150px;
+    }
+
+    .cake-container .wishes {
+        font-size: 20px;
+    }
+}
+
+/* Máy tính bảng (màn hình từ 601px đến 1024px) */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .card {
+        width: 300px;
+        height: 450px;
+    }
+
+    .card-front, .card-back {
+        font-size: 20px;
+    }
+
+    .blow-button {
+        font-size: 16px;
+        padding: 10px 18px;
+    }
+
+    .cake-container .cake {
+        width: 250px;
+        height: 175px;
+    }
+
+    .cake-container .wishes {
+        font-size: 24px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="birthday-card">
+        <h1>🎉 Chúc Mừng Sinh Nhật BA! 🎉</h1>
+        <p class="message">Chúc BA một ngày sinh nhật tuyệt vời, tràn đầy niềm vui và hạnh phúc!</p>
+        <div class="cake">
+            <div class="candle">
+                <div class="flame"></div>
+            </div>
+        </div>
+    </div>
+    <p class="click-message">Nhấp nhiều lần vào màn hình để thổi nến!</p>
+
+    <script>
+        let clicks = 0;
+        const maxClicks = 3;
+        const body = document.querySelector('body');
+        const flame = document.querySelector('.flame');
+
+        function createConfetti() {
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#ffeead'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear`;
+                body.appendChild(confetti);
+
+                setTimeout(() => confetti.remove(), 5000);
+            }
+        }
+
+        body.addEventListener('click', () => {
+            clicks++;
+            
+            if (clicks === maxClicks) {
+                flame.style.opacity = '0';
+                flame.style.transform = 'translateX(-50%) scale(0)';
+                createConfetti();
+                document.querySelector('.click-message').style.display = 'none';
+            } else if (clicks < maxClicks) {
+                flame.style.transform = `translateX(-50%) scale(${1 - clicks * 0.3})`;
+            }
+        });
+    </script>
+</body>
+</html>

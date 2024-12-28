@@ -1,0 +1,56 @@
+.account-header {
+    color: orange;
+    background-color: #ADD8E6; /* Xanh nhạt */
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.account-info {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 600px;
+}
+
+.account-info p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.account-info button {
+    margin: 10px 5px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.account-info button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.background-update {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.avatar {
+    width: 24vw; /* 12% of the viewport width */
+    height: auto; /* maintain aspect ratio */
+    max-width: 240px; /* maximum width */
+    min-width: 60px; /* minimum width */
+    border-radius: 50%; /* make it circular */
+}
