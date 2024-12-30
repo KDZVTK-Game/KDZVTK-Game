@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="snake.css" />
+  </head>
+  <body>
+    <p id="hs">Điểm cao nhất: <span id="hsvalue">0</span></p>
+    <h3 id="score">Điểm : <span id="value">0</span></h3>
+    <canvas width="400" height="400" id="game"></canvas>
+    <div class="button">
+      <button id="pause-btn" class="btn">Dừng</button>
+      <button id="resume-btn" class="btn">Chơi</button>
+    </div>
+    <p class="text">hoặc</p>
+    <p class="text">Sử dụng Enter hoặc nhấn nút Chơi</p>
+    <div class="mobile-mode">
+      <div class="up-down">
+        <button class="ctrl-btns top">
+          <img src="./assets/arrow-up.svg" alt="⬆️" />
+        </button>
+        <button class="ctrl-btns down">
+          <img src="./assets/arrow-down.svg" alt="⬆️" />
+        </button>
+      </div>
+      <div class="left-right">
+        <button class="ctrl-btns left">
+          <img src="./assets/arrow-left.svg" alt="⬆️" />
+        </button>
+        <button class="ctrl-btns right">
+          <img src="./assets/arrow-right.svg" alt="⬆️" />
+        </button>
+      </div>
+    </div>
+    <script src="snake.js"></script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holiday Effects</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="assets/js/ChristmasOverlay.js"></script>
+    <script src="assets/js/NewYearsOverlay.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="effects-container">
+            <header class="effects-header">
+                <h2>Christmas Snow Effect</h2>
+                <div class="effects-controls">
+                    <button id="snowEnable" class="button enable">Enable Snow</button>
+                    <button id="snowDisable" class="button disable">Disable Snow</button>
+                </div>
+            </header>
+            <header class="effects-header">
+                <h2>New Year's Fireworks Effect</h2>
+                <div class="effects-controls">
+                    <button id="fireworksEnable" class="button enable">Enable Fireworks</button>
+                    <button id="fireworksDisable" class="button disable">Disable Fireworks</button>
+                </div>
+            </header>
+        </div>
+    </div>
+    <script>
+        // Thử các hiệu ứng sau khi DOM tải xong
+        document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM loaded. Initializing effects...');
+
+            // Kiểm tra ChristmasOverlay
+            if (typeof christmasOverlaySnow !== 'undefined') {
+                console.log('ChristmasOverlaySnow is ready.');
+            } else {
+                console.error('ChristmasOverlaySnow not loaded.');
+            }
+
+            // Kiểm tra FireworksOverlay
+            if (typeof FireworksOverlay !== 'undefined') {
+                console.log('FireworksOverlay is ready.');
+            } else {
+                console.error('FireworksOverlay not loaded.');
+            }
+
+            // Gắn sự kiện cho nút bấm
+            document.getElementById('snowEnable').addEventListener('click', () => {
+                christmasOverlaySnow.enable({
+                    snowflakeCount: 100,
+                    snowflakeColor: 'white',
+                    zIndex: 9999
+                });
+            });
+
+            document.getElementById('snowDisable').addEventListener('click', () => {
+                christmasOverlaySnow.disable();
+            });
+
+            let fireworksInstance;
+
+            document.getElementById('fireworksEnable').addEventListener('click', () => {
+                if (!fireworksInstance) {
+                    fireworksInstance = new FireworksOverlay({
+                        colors: ['#FF0000', '#00FF00', '#0000FF'],
+                        particleCount: 100,
+                        interval: 500,
+                        zIndex: 9999
+                    });
+                }
+                fireworksInstance.startAnimation();
+            });
+
+            document.getElementById('fireworksDisable').addEventListener('click', () => {
+                if (fireworksInstance) {
+                    fireworksInstance.stopAnimation();
+                }
+            });
+        });
+    </script>
+    <script src="index.js"></script>
+    <script>
+        console.log('Loading ChristmasOverlay...');
+    </script>
+    
+</body>
+</html>

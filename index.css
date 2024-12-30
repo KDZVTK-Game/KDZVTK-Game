@@ -2,7 +2,7 @@
     --primary-color: #2563eb;
     --secondary-color: #3b82f6;
     --accent-color: #f59e0b;
-    --background-color: #f0f9ff;
+    --background-color: #7f7f7f;
     --text-color: #1e293b;
     --card-background: #ffffff;
     --shadow-color: rgba(0, 0, 0, 0.1);
@@ -39,6 +39,7 @@ body {
     box-shadow: 0 4px 6px var(--shadow-color);
     margin-bottom: 2rem;
 }
+
 
 .site-title {
     font-size: 2.5rem;
@@ -320,4 +321,84 @@ body {
 .button-circle:hover {
     background-color: #3b82f6; 
     transform: scale(1.1); 
+}
+
+.effects-container {
+    display: flex;
+    justify-content: space-around; /* Đặt ngang hàng */
+    align-items: center;
+    flex-wrap: wrap; /* Tự xuống hàng nếu hẹp */
+    gap: 1rem;
+}
+
+.effects-header {
+    display: flex; /* Sử dụng Flexbox để căn chỉnh */
+    flex-direction: column; /* Sắp xếp theo chiều dọc */
+    justify-content: center; /* Căn giữa theo chiều dọc */
+    align-items: center; /* Căn giữa theo chiều ngang */
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--card-background), #f0f9ff); /* Màu trắng */
+    padding: 1rem;
+    border-radius: 1rem; /* Bo góc */
+    box-shadow: 0 4px 6px var(--shadow-color); /* Đổ bóng */
+    text-align: center; /* Căn giữa nội dung */
+    display: inline-flex; /* Sắp xếp nội dung ngang hoặc dọc */
+    flex-direction: column; /* Đặt nội dung dọc */
+    gap: 1rem; /* Khoảng cách giữa chữ và nút */
+    max-width: 400px; /* Giới hạn chiều rộng */
+}
+
+
+.effects-header h3 {
+    color: var(--text-color);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.effects-controls {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.effects-controls .button {
+    padding: 1rem 2rem; /* Tăng kích thước padding */
+    border-radius: 0.75rem; /* Bo góc lớn hơn để nút trông mềm mại hơn */
+    font-weight: bold; /* Đậm chữ để dễ đọc */
+    font-size: 1.2rem; /* Tăng kích thước chữ */
+    cursor: pointer;
+    transition: transform 0.3s, background-color 0.3s; /* Hiệu ứng khi hover */
+}
+
+
+.button.enable {
+    background-color: #22c55e;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.button.enable:hover {
+    background-color: #16a34a;
+    transform: translateY(-2px);
+}
+
+.button.disable {
+    background-color: #ef4444;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.button.disable:hover {
+    background-color: #dc2626;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 640px) {
+    .effects-controls {
+        flex-direction: column;
+    }
+    
+    .effects-controls .button {
+        width: 100%;
+    }
 }

@@ -22,6 +22,26 @@
             </div>
         </header>       
 
+        <div class="container">
+            <div class="effects-container">
+                <header class="effects-header">
+                    <h3>Hiệu ứng bông tuyết</h2>
+                    <div class="effects-controls">
+                        <button id="snowEnable" class="button enable">Bật</button>
+                        <button id="snowDisable" class="button disable">Tắt</button>
+                    </div>
+                </header>
+                <header class="effects-header">
+                    <h3>Hiệu ứng pháo hoa</h2>
+                    <div class="effects-controls">
+                        <button id="fireworksEnable" class="button enable">Bật</button>
+                        <button id="fireworksDisable" class="button disable">Tắt</button>
+                    </div>
+                </header>
+            </div>
+        </div>
+
+
         <div class="games-grid">
             <div class="game-card">
                 <img src="flappybird.png" alt="Flappy Bird" class="game-image">
@@ -110,9 +130,55 @@
                     <button class="button button-primary" onclick="redirectToApp3()">Mở app</button>
                 </div>
             </div>
+
+            <div class="game-card">
+                <img src="Phaohoa.png" alt="Phaohoa" class="game-image">
+                <div class="game-info">
+                    <h3 class="game-title">Trang web pháo hoa</h3>
+                    <button class="button button-primary" onclick="redirectToApp4()">Mở app</button>
+                </div>
+            </div>
         </div>
     </div>
-
     <script src="index.js"></script>
-</body>
+    <script src="https://dadevmikey.github.io/The-Holiday-Library/ChristmasOverlay.js"></script>
+    <script src="https://dadevmikey.github.io/The-Holiday-Library/NewYearsOverlay.js"></script>
+    <script>
+    let fireworksInstance;
+
+    // Wait for libraries to load
+    window.addEventListener('load', () => {
+    // Initialize fireworks instance
+    fireworksInstance = new FireworksOverlay({
+        colors: ['#FF0000', '#00FF00', '#0000FF'],
+        particleCount: 100,
+        interval: 500,
+        zIndex: 9999
+    });
+
+    // Snow enable button
+    document.getElementById('snowEnable').addEventListener('click', () => {
+        christmasOverlaySnow.enable({
+        snowflakeCount: 100,
+        snowflakeColor: 'white',
+        zIndex: 9999
+        });
+    });
+
+    // Snow disable button
+    document.getElementById('snowDisable').addEventListener('click', () => {
+        christmasOverlaySnow.disable();
+    });
+
+    // Fireworks enable button
+    document.getElementById('fireworksEnable').addEventListener('click', () => {
+        fireworksInstance.startAnimation();
+    });
+
+    // Fireworks disable button
+    document.getElementById('fireworksDisable').addEventListener('click', () => {
+        fireworksInstance.stopAnimation();
+    });
+    });
+    </script>
 </html>

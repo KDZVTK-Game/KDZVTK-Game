@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flappy Bird</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             overflow: hidden;
@@ -12,53 +18,335 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            background-color: #ADD8E6; /* Màu xanh dương nhạt */
-            
+            min-height: 100vh;
+            background-color: #87CEEB;
+            font-family: Arial, sans-serif;
         }
-        #back-button {
-            width: 100px;
-            height: 40px;
+
+        .game-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        #gamezone {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+
+        .game-ui {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .score-board {
+            background-color: #FFD700;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .message {
+            color: #4A148C;
+            background-color: #FFD700;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 90%;
+            margin: 10px auto;
+            font-size: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .button {
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .home-button {
             background-color: #4CAF50;
             color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-top: 20px;
         }
-        #score {
-            background-color: yellow;
-            padding: 10px;
-            border-radius: 5px;
+
+        .pause-button {
+            background-color: #2196F3;
+            color: white;
             margin-top: 10px;
+        }
+
+        .play-again-container {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
             text-align: center;
         }
-        #message {
-            color: rgb(92, 0, 240);
-            min-width: 4vw;
-            min-height: 1px;
-            max-width: 50vw;
-            background-color: yellow;
-            padding: 30px;
-            border-radius: 5px;
-            margin-top: 10px;
-            text-align: center;
+
+        .play-again-button {
+            background-color: #FF4081;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
         }
-        #vetrangchinh {
-            background-color: rgb(51, 255, 0);
-            padding: 10px;
-            border-radius: 5px;
-            margin-top: 10px;
-            text-align: center;
+
+        .game-over-score {
+            background-color: #FFD700;
+            color: #4A148C;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .game-container {
+                padding: 10px;
+            }
+
+            .button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+
+            .score-board {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+
+            .message {
+                font-size: 0.9rem;
+                padding: 12px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <canvas id="gamezone" width="900" height="500"></canvas>
-    <p id="score">Score: 0</p>
-    <p id="message"></p>
-    <button id="vetrangchinh" onclick="Vetrangchinh()">Về trang chính</button> 
-    <script src="flappybird.js"></script>
+    <div class="game-container">
+        <canvas id="gamezone" width="900" height="500"></canvas>
+        <div class="play-again-container" id="playAgainContainer">
+            <button class="button play-again-button" onclick="resetGame()">Chơi lại</button>
+        </div>
+        <div class="game-ui">
+            <div class="score-board" id="score">Score: 0</div>
+            <div class="message" id="message"></div>
+            <button class="button pause-button" id="pauseButton">Pause</button>
+            <button class="button home-button" onclick="Vetrangchinh()">Về trang chính</button>
+        </div>
+    </div>
+    <script>
+    var canvas = document.getElementById('gamezone');
+    var context = canvas.getContext('2d');
+    var scoreShow = document.getElementById('score');
+    var messageShow = document.getElementById('message');
+    var pauseButton = document.getElementById('pauseButton');
+    var playAgainContainer = document.getElementById('playAgainContainer');
+    var gameOverScore = document.getElementById('gameOverScore');
+
+    var birdImg = new Image();
+    var backgroundImg = new Image();
+    var pipeTopImg = new Image();
+    var pipeBottomImg = new Image();
+    birdImg.src = "bird.png";
+    backgroundImg.src = "nenchinh.png";
+    pipeTopImg.src = "ongtren.png";
+    pipeBottomImg.src = "ongduoi.png";
+
+    var score = 1;
+    var pipeGap = 140;
+    var pipeDistance;
+    var isGameOver = false;
+    var isPaused = false;
+    var animationFrameId;
+
+    function resizeCanvas() {
+        var container = canvas.parentElement;
+        var containerWidth = container.clientWidth;
+        var scale = containerWidth / 900;
+        canvas.style.width = containerWidth + 'px';
+        canvas.style.height = (500 * scale) + 'px';
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    var bird = {
+        x: canvas.width / 5 + 300,
+        y: canvas.height / 2,
+        width: 50,
+        height: 36,
+        velocity: 0,
+        gravity: 0.3,
+        jump: 6
+    };
+
+    var pipes = [];
+    pipes[0] = {
+        x: canvas.width,
+        y: 0
+    };
+
+    function showGameOver() {
+        playAgainContainer.style.display = 'block';
+        messageShow.innerHTML = "Bạn đã thua! Nhấn nút Chơi lại để thử lại.";
+    }
+
+    function resetGame() {
+        score = 0;
+        scoreShow.innerHTML = "Score: " + score;
+        messageShow.innerHTML = "";
+        playAgainContainer.style.display = 'none';
+        pipes = [];
+        pipes[0] = {
+            x: canvas.width,
+            y: 0
+        };
+        bird.y = canvas.height / 2;
+        bird.velocity = 0;
+        isGameOver = false;
+        isPaused = false;
+        pauseButton.innerHTML = "Pause";
+        draw();
+    }
+
+    function Vetrangchinh() {
+        window.location.href = "index.html";
+    }
+
+    function togglePause() {
+        isPaused = !isPaused;
+        pauseButton.innerHTML = isPaused ? "Resume" : "Pause";
+        if (!isPaused) {
+            draw();
+        }
+    }
+
+    function checkCollision(pipe) {
+        // Add small buffer zones for more precise collision
+        const bufferX = 2;  // Horizontal buffer
+        const bufferY = 2;  // Vertical buffer
+        
+        // Adjusted collision box for bird
+        const birdBox = {
+            left: bird.x + bufferX,
+            right: bird.x + bird.width - bufferX,
+            top: bird.y + bufferY,
+            bottom: bird.y + bird.height - bufferY
+        };
+        
+        // Collision with top pipe
+        const topPipeCollision = 
+            birdBox.right > pipe.x &&
+            birdBox.left < pipe.x + pipeTopImg.width &&
+            birdBox.top < pipe.y + pipeTopImg.height;
+        
+        // Collision with bottom pipe
+        const bottomPipeCollision = 
+            birdBox.right > pipe.x &&
+            birdBox.left < pipe.x + pipeBottomImg.width &&
+            birdBox.bottom > pipe.y + pipeDistance;
+            
+        return topPipeCollision || bottomPipeCollision;
+    }
+
+    function draw() {
+        if (isPaused || isGameOver) {
+            return;
+        }
+
+        context.drawImage(backgroundImg, 0, 0);
+        context.drawImage(birdImg, bird.x, bird.y, bird.width, bird.height);
+
+        for (var i = 0; i < pipes.length; i++) {
+            pipeDistance = pipeTopImg.height + pipeGap;
+            context.drawImage(pipeTopImg, pipes[i].x, pipes[i].y);
+            context.drawImage(pipeBottomImg, pipes[i].x, pipes[i].y + pipeDistance);
+
+            pipes[i].x -= 5;
+
+            if (pipes[i].x == canvas.width / 2) {
+                pipes.push({
+                    x: canvas.width,
+                    y: Math.floor(Math.random() * pipeTopImg.height) - pipeTopImg.height
+                });
+            }
+            if (pipes[i].x == 0) pipes.splice(0, 1);
+
+            if (checkCollision(pipes[i])) {
+                if (!isGameOver) {
+                    isGameOver = true;
+                    showGameOver();
+                }
+                return;
+            }
+
+            // Only count score if game is still active
+            if (!isGameOver && pipes[i].x == bird.x + bird.width / 2) {
+                score++;
+                scoreShow.innerHTML = "Score: " + score;
+            }
+        }
+
+        bird.velocity += bird.gravity;
+        bird.y += bird.velocity;
+
+        // More precise ground and ceiling collision
+        if (bird.y + bird.height >= canvas.height - 2 || bird.y <= 2) {
+            if (!isGameOver) {
+                isGameOver = true;
+                showGameOver();
+            }
+            return;
+        }
+
+        animationFrameId = requestAnimationFrame(draw);
+    }
+
+    document.addEventListener("mousedown", function(event) {
+        if (event.target.tagName !== 'BUTTON' && !isGameOver) {
+            if (!isPaused) {
+                bird.velocity = -bird.jump;
+            }
+        }
+    });
+
+    document.addEventListener("touchstart", function(event) {
+        if (event.target.tagName !== 'BUTTON' && !isGameOver) {
+            event.preventDefault();
+            if (!isPaused) {
+                bird.velocity = -bird.jump;
+            }
+        }
+    });
+
+    pauseButton.addEventListener("click", togglePause);
+
+    resetGame();
+    </script>
 </body>
 </html>

@@ -190,10 +190,10 @@ function redirectToGame1() {
   function redirectToGame6() {
     var loggedInUser = localStorage.getItem("loggedInUser");
     if (isLoggedIn(loggedInUser)) {
-        window.location.href = "ransanmoi.html";
+        window.location.href = "snake.html";
     } else {
         alert("Hãy đăng kí và đăng nhập để có trải nghiệm tốt nhất");
-        window.location.href = "ransanmoi.html";
+        window.location.href = "snake.html";
     }
   }
   
@@ -239,6 +239,11 @@ function redirectToGame1() {
   
   function redirectToApp3() {
     window.location.href = "Sinhnhat.html";
+  }
+
+  function redirectToApp4() {
+    window.location.href = "firework-with-audio/dist/index.html";
+
   }
 
   function redirectToHbdBa() {
@@ -312,3 +317,5 @@ function redirectToGame1() {
   function redirectToAdminPage() {
     window.location.href = "admin.html"
   }
+
+  
