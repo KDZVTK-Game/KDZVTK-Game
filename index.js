@@ -216,6 +216,26 @@ function redirectToGame1() {
         window.location.href = "Thuthachdonho.html";
     }
   }
+
+  function redirectToGame9() {
+    var loggedInUser = localStorage.getItem("loggedInUser");
+    if (isLoggedIn(loggedInUser)) {
+        window.location.href = "ghephinh.html";
+    } else {
+        alert("Hãy đăng kí và đăng nhập để sử dụng");
+        window.location.href = "dangnhapdangki.html";
+    }
+  }
+
+  function redirectToGame10() {
+    var loggedInUser = localStorage.getItem("loggedInUser");
+    if (isLoggedIn(loggedInUser)) {
+        window.location.href = "nhandang_game.html";
+    } else {
+        alert("Hãy đăng kí và đăng nhập để sử dụng");
+        window.location.href = "dangnhapdangki.html";
+    }
+  }
   
   function redirectToApp1() {
     var loggedInUser = localStorage.getItem("loggedInUser");
