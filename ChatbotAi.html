@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KDZ AI Assistant - Offline Mode</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .chat-container::-webkit-scrollbar { width: 6px; }
+        .chat-container::-webkit-scrollbar-thumb { background-color: #cbd5e1; border-radius: 10px; }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen font-sans">
+
+    <div class="max-w-4xl mx-auto h-screen flex flex-col p-4">
+        <header class="bg-white rounded-t-3xl shadow-lg p-6 border-b flex items-center gap-4">
+            <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <i data-lucide="bot" class="text-white w-8 h-8"></i>
+            </div>
+            <div>
+                <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">KDZ AI Assistant</h1>
+                <p id="status" class="text-sm text-gray-400">Đang tải dữ liệu kiến thức...</p>
+            </div>
+        </header>
+
+        <div id="chatBox" class="flex-1 bg-white overflow-y-auto p-6 space-y-4 chat-container">
+            <div class="flex gap-3 justify-start">
+                <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600">
+                    <i data-lucide="bot" class="w-4 h-4"></i>
+                </div>
+                <div class="bg-gray-100 p-4 rounded-2xl rounded-tl-none max-w-[80%] text-gray-800 shadow-sm">
+                    Xin chào! Tôi đã sẵn sàng. Hãy hỏi tôi bất cứ điều gì có trong dữ liệu! 🤖
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-white rounded-b-3xl p-6 border-t shadow-2xl">
+            <div class="flex gap-3 items-center bg-gray-50 p-2 rounded-2xl border border-gray-200">
+                <textarea id="userInput" rows="1" placeholder="Nhập câu hỏi..." class="flex-1 px-4 py-2 bg-transparent outline-none resize-none"></textarea>
+                <button onclick="handleSend()" class="p-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-all">
+                    <i data-lucide="send" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        let knowledgeData = [];
+
+        // HÀM ĐỌC FILE AI.TXT
+        async function loadKnowledge() {
+            try {
+                const response = await fetch('AI.txt');
+                const text = await response.text();
+                
+                // Chuyển đổi file text thành mảng dữ liệu
+                knowledgeData = text.split('\n').filter(line => line.includes('|')).map(line => {
+                    const [keys, ans] = line.split('|');
+                    return {
+                        keywords: keys.split(',').map(k => k.trim().toLowerCase()),
+                        answer: ans.trim()
+                    };
+                });
+                document.getElementById('status').innerText = "● Chatbot đã sẵn sàng";
+                document.getElementById('status').classList.replace('text-gray-400', 'text-green-500');
+            } catch (error) {
+                console.error("Lỗi tải file AI.txt:", error);
+                document.getElementById('status').innerText = "Chatbot không thể tải dữ liệu kiến thức.";
+                document.getElementById('status').classList.replace('text-gray-400', 'text-red-500');
+            }
+        }
+
+        function addMessage(text, isUser) {
+            const chatBox = document.getElementById('chatBox');
+            const div = document.createElement('div');
+            div.className = `flex gap-3 ${isUser ? 'justify-end' : 'justify-start'}`;
+            
+            div.innerHTML = `
+                ${!isUser ? '<div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600"><i data-lucide="bot" class="w-4 h-4"></i></div>' : ''}
+                <div class="${isUser ? 'bg-blue-600 text-white rounded-br-none' : 'bg-gray-100 text-gray-800 rounded-tl-none'} p-4 rounded-2xl max-w-[80%] shadow-sm">
+                    ${text}
+                </div>
+            `;
+            chatBox.appendChild(div);
+            lucide.createIcons();
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function handleSend() {
+            const input = document.getElementById('userInput');
+            const question = input.value.trim().toLowerCase();
+            if (!question) return;
+
+            addMessage(input.value, true);
+            input.value = '';
+
+            // Tìm câu trả lời
+            let foundAnswer = "❌ Xin lỗi, có lỗi xảy ra. Vui lòng thử lại sau.";
+            
+            for (let item of knowledgeData) {
+                if (item.keywords.some(k => question.includes(k))) {
+                    foundAnswer = item.answer;
+                    break;
+                }
+            }
+
+            setTimeout(() => addMessage(foundAnswer, false), 500);
+        }
+
+        // Tải dữ liệu ngay khi mở web
+        loadKnowledge();
+
+        // Gửi bằng phím Enter
+        document.getElementById('userInput').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleSend();
+            }
+        });
+    </script>
+</body>
+</html>

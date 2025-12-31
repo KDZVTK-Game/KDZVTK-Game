@@ -3,192 +3,291 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KDZ Game Hub</title>
+    <title>KDZ Game Hub 2026</title>
     <link rel="stylesheet" href="index.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+    </button>
+
     <div class="container">
         <header class="header">
-            <h1 class="site-title">KDZ Game Hay</h1>
-            <div class="auth-section">
-                <div class="user-logout" id="auth-button" onclick="OutorIn()">
-                    <span id="loginText">Login</span>
-                </div>
-                <div class="user-profile" id="user-info" onclick="redirectToTaiKhoanHienTai()">
-                    <img src="images/default-avatar.png" alt="Avatar" class="avatar">
-                    <span class="username" id="displayUsername">Tên đăng nhập</span>
+            <div class="header-content">
+                <h1 class="site-title">
+                    <span class="title-main">KDZ Game Hub</span>
+                    <span class="title-year">2026</span>
+                </h1>
+                <div class="auth-section">
+                    <div class="user-logout" id="auth-button" onclick="OutorIn()">
+                        <span id="loginText">Login</span>
+                    </div>
+                    <div class="user-profile" id="user-info" onclick="redirectToTaiKhoanHienTai()">
+                        <img src="images/default-avatar.png" alt="Avatar" class="avatar">
+                        <span class="username" id="displayUsername">Tên đăng nhập</span>
+                    </div>
                 </div>
             </div>
-        </header>       
+        </header>
 
-        <div class="container">
+        <div class="effects-section">
             <div class="effects-container">
-                <header class="effects-header">
-                    <h3>Hiệu ứng bông tuyết</h2>
+                <div class="effect-card">
+                    <div class="effect-icon">❄️</div>
+                    <h3>Hiệu ứng bông tuyết</h3>
                     <div class="effects-controls">
                         <button id="snowEnable" class="button enable">Bật</button>
                         <button id="snowDisable" class="button disable">Tắt</button>
                     </div>
-                </header>
-                <header class="effects-header">
-                    <h3>Hiệu ứng pháo hoa</h2>
+                </div>
+                <div class="effect-card">
+                    <div class="effect-icon">🎆</div>
+                    <h3>Hiệu ứng pháo hoa</h3>
                     <div class="effects-controls">
                         <button id="fireworksEnable" class="button enable">Bật</button>
                         <button id="fireworksDisable" class="button disable">Tắt</button>
                     </div>
-                </header>
+                </div>
             </div>
         </div>
 
+        <div class="games-section">
+            <h2 class="section-title">Thư viện game & ứng dụng</h2>
+            <div class="games-grid">
+                <div class="game-card">
+                    <div class="game-image-wrapper">
+                        <img src="flappybird.png" alt="Flappy Bird" class="game-image">
+                        <div class="game-overlay">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Flappy Bird</h3>
+                        <button class="button button-primary" onclick="redirectToGame1()">Chơi ngay</button>
+                    </div>
+                </div>
 
-        <div class="games-grid">
-            <div class="game-card">
-                <img src="flappybird.png" alt="Flappy Bird" class="game-image">
-                <div class="game-info">
-                    <h3 class="game-title">Flappy Bird</h3>
-                    <button class="button button-primary" onclick="redirectToGame1()">Chơi ngay</button>
+                <div class="game-card">
+                    <div class="game-image-wrapper">
+                        <img src="chess.jfif" alt="Cờ Vua AI" class="game-image">
+                        <div class="game-overlay">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Cờ Vua AI</h3>
+                        <button class="button button-primary" onclick="redirectToGame2()">Chơi ngay</button>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-wrapper">
+                        <img src="chess2.jfif" alt="Cờ vua 2 người" class="game-image">
+                        <div class="game-overlay">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Cờ vua 2 người</h3>
+                        <button class="button button-primary" onclick="redirectToGame3()">Chơi ngay</button>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-wrapper">
+                        <img src="tictactoe.jfif" alt="Game Cờ caro (X/O) AI" class="game-image">
+                        <div class="game-overlay">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Game Cờ caro (X/O) AI</h3>
+                        <button class="button button-primary" onclick="redirectToGame4()">Chơi ngay</button>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-wrapper">
+                        <img src="tictactoe2.jfif" alt="Game Cờ caro (X/O) 2 người" class="game-image">
+                        <div class="game-overlay">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Game Cờ caro (X/O) 2 người</h3>
+                        <button class="button button-primary" onclick="redirectToGame5()">Chơi ngay</button>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-wrapper">
+                        <img src="snake.jfif" alt="Game Rắn săn mồi" class="game-image">
+                        <div class="game-overlay">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Game Rắn săn mồi</h3>
+                        <button class="button button-primary" onclick="redirectToGame6()">Chơi ngay</button>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-wrapper">
+                        <img src="domin.jfif" alt="Game Dò mìn" class="game-image">
+                        <div class="game-overlay">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Game Dò mìn</h3>
+                        <button class="button button-primary" onclick="redirectToGame7()">Chơi ngay</button>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-wrapper">
+                        <img src="Thuthachdonho.jpg" alt="Game thử thách độ nhớ" class="game-image">
+                        <div class="game-overlay">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Game thử thách độ nhớ</h3>
+                        <button class="button button-primary" onclick="redirectToGame8()">Chơi ngay</button>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-wrapper">
+                        <img src="ghephinh.jfif" alt="Ghép hình" class="game-image">
+                        <div class="game-overlay">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Ghép hình</h3>
+                        <button class="button button-primary" onclick="redirectToGame9()">Chơi ngay</button>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-wrapper">
+                        <img src="weather.png" alt="App Thời Tiết" class="game-image">
+                        <div class="game-overlay">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">App Thời Tiết</h3>
+                        <button class="button button-primary" onclick="redirectToApp1()">Mở app</button>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-wrapper">
+                        <img src="Tocdogo.jpg" alt="App tốc độ gõ" class="game-image">
+                        <div class="game-overlay">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">App tốc độ gõ</h3>
+                        <button class="button button-primary" onclick="redirectToApp2()">Mở app</button>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-wrapper">
+                        <img src="Sinhnhat.png" alt="Chúc mừng sinh nhật" class="game-image">
+                        <div class="game-overlay">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Chúc mừng sinh nhật bạn nhé</h3>
+                        <button class="button button-primary" onclick="redirectToApp3()">Mở app</button>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-wrapper">
+                        <img src="Phaohoa.png" alt="Pháo hoa" class="game-image">
+                        <div class="game-overlay">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Trang web pháo hoa</h3>
+                        <button class="button button-primary" onclick="redirectToApp4()">Mở app</button>
+                    </div>
+                </div>
+
+                <div class="game-card">
+                    <div class="game-image-wrapper">
+                        <img src="ChatbotAi.jpg" alt="Pháo hoa" class="game-image">
+                        <div class="game-overlay">
+                            <span class="play-icon">▶</span>
+                        </div>
+                    </div>
+                    <div class="game-info">
+                        <h3 class="game-title">Chat bot AI thông minh</h3>
+                        <button class="button button-primary" onclick="redirectToApp5()">Mở app</button>
+                    </div>
                 </div>
             </div>
-
-            <div class="game-card">
-                <img src="chess.jfif" alt="Cờ Vua AI" class="game-image">
-                <div class="game-info">
-                    <h3 class="game-title">Cờ Vua AI</h3>
-                    <button class="button button-primary" onclick="redirectToGame2()">Chơi ngay</button>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <img src="chess2.jfif" alt="Cờ vua 2 người" class="game-image">
-                <div class="game-info">
-                    <h3 class="game-title">Cờ vua 2 người</h3>
-                    <button class="button button-primary" onclick="redirectToGame3()">Chơi ngay</button>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <img src="tictactoe.jfif" alt="Game Cờ caro ( X / O ) AI"  class="game-image">
-                <div class="game-info">
-                    <h3 class="game-title">Game Cờ caro ( X / O ) AI</h3>
-                    <button class="button button-primary" onclick="redirectToGame4()">Chơi ngay</button>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <img src="tictactoe2.jfif" alt="Game Cờ caro ( X / O ) 2 người" class="game-image">
-                <div class="game-info">
-                    <h3 class="game-title">Game Cờ caro ( X / O ) 2 người</h3>
-                    <button class="button button-primary" onclick="redirectToGame5()">Chơi ngay</button>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <img src="snake.jfif" alt="Game Rắn săn mồi" class="game-image">
-                <div class="game-info">
-                    <h3 class="game-title">Game Rắn săn mồi</h3>
-                    <button class="button button-primary" onclick="redirectToGame6()">Game Rắn săn mồi</button>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <img src="domin.jfif" alt="Game Dò mìn" class="game-image">
-                <div class="game-info">
-                    <h3 class="game-title">Game Dò mìn</h3>
-                    <button class="button button-primary" onclick="redirectToGame7()">Chơi ngay</button>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <img src="Thuthachdonho.jpg" alt="Game thử thách độ nhớ" class="game-image">
-                <div class="game-info">
-                    <h3 class="game-title">Game thử thách độ nhớ</h3>
-                    <button class="button button-primary" onclick="redirectToGame8()">Chơi ngay</button>
-                </div>
-            </div>
-
-            
-            <div class="game-card">
-                <img src="ghephinh.jfif" alt="Ghep hinh" class="game-image">
-                <div class="game-info">
-                    <h3 class="game-title">Ghép hình</h3>
-                    <button class="button button-primary" onclick="redirectToGame9()">Chơi ngay</button>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <img src="weather.png" alt="App Thời Tiết" class="game-image">
-                <div class="game-info">
-                    <h3 class="game-title">App Thời Tiết</h3>
-                    <button class="button button-primary" onclick="redirectToApp1()">Mở app</button>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <img src="Tocdogo.jpg" alt="App tốc độ gõ" class="game-image">
-                <div class="game-info">
-                    <h3 class="game-title">App tốc độ gõ</h3>
-                    <button class="button button-primary" onclick="redirectToApp2()">Mở app</button>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <img src="Sinhnhat.png" alt="chúc mừng sinh nhật" class="game-image">
-                <div class="game-info">
-                    <h3 class="game-title">Chúc mừng sinh nhật bạn nhé</h3>
-                    <button class="button button-primary" onclick="redirectToApp3()">Mở app</button>
-                </div>
-            </div>
-
-            <div class="game-card">
-                <img src="Phaohoa.png" alt="Phaohoa" class="game-image">
-                <div class="game-info">
-                    <h3 class="game-title">Trang web pháo hoa</h3>
-                    <button class="button button-primary" onclick="redirectToApp4()">Mở app</button>
-                </div>
-            </div>
-
         </div>
     </div>
+
     <script src="index.js"></script>
     <script src="https://dadevmikey.github.io/The-Holiday-Library/ChristmasOverlay.js"></script>
     <script src="https://dadevmikey.github.io/The-Holiday-Library/NewYearsOverlay.js"></script>
     <script>
     let fireworksInstance;
 
-    // Wait for libraries to load
     window.addEventListener('load', () => {
-    // Initialize fireworks instance
-    fireworksInstance = new FireworksOverlay({
-        colors: ['#FF0000', '#00FF00', '#0000FF'],
-        particleCount: 100,
-        interval: 500,
-        zIndex: 9999
-    });
+        fireworksInstance = new FireworksOverlay({
+            colors: ['#FF0000', '#00FF00', '#0000FF'],
+            particleCount: 100,
+            interval: 500,
+            zIndex: 9999
+        });
 
-    // Snow enable button
-    document.getElementById('snowEnable').addEventListener('click', () => {
-        christmasOverlaySnow.enable({
-        snowflakeCount: 100,
-        snowflakeColor: 'white',
-        zIndex: 9999
+        document.getElementById('snowEnable').addEventListener('click', () => {
+            christmasOverlaySnow.enable({
+                snowflakeCount: 100,
+                snowflakeColor: 'white',
+                zIndex: 9999
+            });
+        });
+
+        document.getElementById('snowDisable').addEventListener('click', () => {
+            christmasOverlaySnow.disable();
+        });
+
+        document.getElementById('fireworksEnable').addEventListener('click', () => {
+            fireworksInstance.startAnimation();
+        });
+
+        document.getElementById('fireworksDisable').addEventListener('click', () => {
+            fireworksInstance.stopAnimation();
         });
     });
-
-    // Snow disable button
-    document.getElementById('snowDisable').addEventListener('click', () => {
-        christmasOverlaySnow.disable();
-    });
-
-    // Fireworks enable button
-    document.getElementById('fireworksEnable').addEventListener('click', () => {
-        fireworksInstance.startAnimation();
-    });
-
-    // Fireworks disable button
-    document.getElementById('fireworksDisable').addEventListener('click', () => {
-        fireworksInstance.stopAnimation();
-    });
-    });
     </script>
+</body>
 </html>

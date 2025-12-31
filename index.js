@@ -1,3 +1,34 @@
+// ==================== DARK MODE FUNCTIONALITY ====================
+// Initialize theme from stored preference or default to light
+function initializeTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+}
+
+// Toggle theme function
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Add animation class
+    document.body.style.transition = 'all 0.3s ease';
+}
+
+// Initialize theme on page load
+initializeTheme();
+
+// Add event listener for theme toggle button
+document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('themeToggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', toggleTheme);
+    }
+});
+
+// ==================== ORIGINAL CODE PRESERVED ====================
 // Biến để theo dõi trạng thái đã khởi tạo
 let isInitialized = false;
 
@@ -142,200 +173,198 @@ function redirectToGame1() {
     if (isLoggedIn) {
         window.location.href = "flappybird.html";
     } else {
-        alert("Hãy đăng kí và đăng nhập để có trải nghiệm tốt nhất");
+        alert("Hãy đăng ký và đăng nhập để có trải nghiệm tốt nhất");
         window.location.href = "flappybird.html";
     }
 }
   
-  function redirectToGame2() {
+function redirectToGame2() {
     var loggedInUser = localStorage.getItem("loggedInUser");
     if (isLoggedIn(loggedInUser)) {
         window.location.href = "chessai.html";
     } else {
-        alert("Hãy đăng kí và đăng nhập để có trải nghiệm tốt nhất");
+        alert("Hãy đăng ký và đăng nhập để có trải nghiệm tốt nhất");
         window.location.href = "chessai.html";
     }
-  }
+}
   
-  function redirectToGame3() {
+function redirectToGame3() {
     var loggedInUser = localStorage.getItem("loggedInUser");
     if (isLoggedIn(loggedInUser)) {
         window.location.href = "chess.html";
     } else {
-        alert("Hãy đăng kí và đăng nhập để có trải nghiệm tốt nhất");
+        alert("Hãy đăng ký và đăng nhập để có trải nghiệm tốt nhất");
         window.location.href = "chess.html";
     }
-  }
+}
   
-  function redirectToGame4() {
+function redirectToGame4() {
     var loggedInUser = localStorage.getItem("loggedInUser");
     if (isLoggedIn(loggedInUser)) {
         window.location.href = "tictactoeai.html";
     } else {
-        alert("VHãy đăng kí và đăng nhập để có trải nghiệm tốt nhất");
+        alert("Hãy đăng ký và đăng nhập để có trải nghiệm tốt nhất");
         window.location.href = "tictactoeai.html";
     }
-  }
+}
   
-  function redirectToGame5() {
+function redirectToGame5() {
     var loggedInUser = localStorage.getItem("loggedInUser");
     if (isLoggedIn(loggedInUser)) {
         window.location.href = "tictactoe.html";
     } else {
-        alert("Hãy đăng kí và đăng nhập để có trải nghiệm tốt nhất");
+        alert("Hãy đăng ký và đăng nhập để có trải nghiệm tốt nhất");
         window.location.href = "tictactoe.html";
     }
-  }
+}
   
-  function redirectToGame6() {
+function redirectToGame6() {
     var loggedInUser = localStorage.getItem("loggedInUser");
     if (isLoggedIn(loggedInUser)) {
         window.location.href = "snake.html";
     } else {
-        alert("Hãy đăng kí và đăng nhập để có trải nghiệm tốt nhất");
+        alert("Hãy đăng ký và đăng nhập để có trải nghiệm tốt nhất");
         window.location.href = "snake.html";
     }
-  }
+}
   
-  function redirectToGame7() {
+function redirectToGame7() {
     var loggedInUser = localStorage.getItem("loggedInUser");
     if (isLoggedIn(loggedInUser)) {
         window.location.href = "Minesweeper.html";
     } else {
-        alert("Hãy đăng kí và đăng nhập để có trải nghiệm tốt nhất");
+        alert("Hãy đăng ký và đăng nhập để có trải nghiệm tốt nhất");
         window.location.href = "Minesweeper.html";
     }
-  }
+}
   
-  function redirectToGame8() {
+function redirectToGame8() {
     var loggedInUser = localStorage.getItem("loggedInUser");
     if (isLoggedIn(loggedInUser)) {
         window.location.href = "Thuthachdonho.html";
     } else {
-        alert("Hãy đăng kí và đăng nhập để có trải nghiệm tốt nhất");
+        alert("Hãy đăng ký và đăng nhập để có trải nghiệm tốt nhất");
         window.location.href = "Thuthachdonho.html";
     }
-  }
+}
 
-  function redirectToGame9() {
+function redirectToGame9() {
     var loggedInUser = localStorage.getItem("loggedInUser");
     if (isLoggedIn(loggedInUser)) {
         window.location.href = "ghephinh.html";
     } else {
-        alert("Hãy đăng kí và đăng nhập để sử dụng");
+        alert("Hãy đăng ký và đăng nhập để sử dụng");
         window.location.href = "dangnhapdangki.html";
     }
-  }
+}
 
-  function redirectToGame10() {
+function redirectToGame10() {
     var loggedInUser = localStorage.getItem("loggedInUser");
     if (isLoggedIn(loggedInUser)) {
         window.location.href = "nhandang_game.html";
     } else {
-        alert("Hãy đăng kí và đăng nhập để sử dụng");
+        alert("Hãy đăng ký và đăng nhập để sử dụng");
         window.location.href = "dangnhapdangki.html";
     }
-  }
+}
   
-  function redirectToApp1() {
+function redirectToApp1() {
     var loggedInUser = localStorage.getItem("loggedInUser");
     if (isLoggedIn(loggedInUser)) {
         window.location.href = "Weather.html";
     } else {
-        alert("Vui lòng đăng nhập để Để sử dụng App thời tiết");
+        alert("Vui lòng đăng nhập để để sử dụng App thời tiết");
         redirectToLoginPage();
     }
-  }
+}
   
-  function redirectToApp2() {
+function redirectToApp2() {
     var loggedInUser = localStorage.getItem("loggedInUser");
     if (isLoggedIn(loggedInUser)) {
         window.location.href = "Tocdogo.html";
     } else {
-        alert("Hãy đăng kí và đăng nhập để có trải nghiệm tốt nhất");
+        alert("Hãy đăng ký và đăng nhập để có trải nghiệm tốt nhất");
         window.location.href = "Tocdogo.html";
     }
-  }
+}
   
-  function redirectToApp3() {
+function redirectToApp3() {
     window.location.href = "Sinhnhat.html";
-  }
+}
 
-  function redirectToApp4() {
+function redirectToApp4() {
     window.location.href = "firework-with-audio/dist/index.html";
+}
 
-  }
+function redirectToApp5() {
+    var loggedInUser = localStorage.getItem("loggedInUser");
+    if (isLoggedIn(loggedInUser)) {
+        window.location.href = "ChatbotAi.html";
+    } else {
+        alert("Hãy đăng ký và đăng nhập để có trải nghiệm tốt nhất");
+        window.location.href = "ChatbotAi.html";
+    }
+}
 
-  function redirectToHbdBa() {
+function redirectToHbdBa() {
     window.location.href = "Birthday.html";
-  }
-  //function redirectToNhac() {
-    //var loggedInUser = localStorage.getItem("loggedInUser");
-    //if (isLoggedIn(loggedInUser)) {
-        //window.location.href = "Phatnhac.html";
-    //} else {
-        //alert("Vui lòng đăng nhập để nghe nhạc.");
-        //redirectToLoginPage();
-    //}
-  //}
-  // để sau =)))
-  
-  var modal = document.getElementById("updateModal");
-  
-  var updateButton = document.getElementById("updateButton");
-  
-  var closeBtn = document.getElementsByClassName("close")[0];
-  
-  updateButton.onclick = function() {
-    modal.style.display = "block";
-  }
-  
-  closeBtn.onclick = function() {
-    modal.style.display = "none";
-  }
-  
-  window.onclick = function(event) {
+}
+
+var modal = document.getElementById("updateModal");
+
+var updateButton = document.getElementById("updateButton");
+
+var closeBtn = document.getElementsByClassName("close")[0];
+
+if (updateButton) {
+    updateButton.onclick = function() {
+        modal.style.display = "block";
+    }
+}
+
+if (closeBtn) {
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+}
+
+window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
-  }
+}
 
-  
-  window.onload = function() {
+window.onload = function() {
     var modalDismissed = localStorage.getItem("modalDismissed");
     if (!modalDismissed) {
-        openUpdatePopup();
+        if (typeof openUpdatePopup === 'function') {
+            openUpdatePopup();
+        }
         localStorage.setItem("modalDismissed", "true");
         setTimeout(function() {
             localStorage.removeItem("modalDismissed");
         }, 3600000); 
     }
-  
+
     // Áp dụng màu nền từ localStorage nếu có
     let savedGradient = localStorage.getItem("backgroundGradient");
     if (savedGradient) {
         document.getElementsByTagName("BODY")[0].style.backgroundImage = savedGradient;
     }
-  };
-  
-  function redirectToTaiKhoanHienTai() {
-    window.location.href = 'taikhoanhientai.html';
-  }
-  
-  function redirectToLoginPage() {
-    window.location.href = "dangnhapdangki.html";
-  }
-  
-  function redirectToPage1() {
-    window.location.href = "dangnhap.html";
-  } // bay màu 
-  
-  function redirectToPage2() {
-    window.location.href = "dangki.html";
-  } // bay màu
-  
-  function redirectToAdminPage() {
-    window.location.href = "admin.html"
-  }
+};
 
-  
+function redirectToLoginPage() {
+    window.location.href = "dangnhapdangki.html";
+}
+
+function redirectToPage1() {
+    window.location.href = "dangnhap.html";
+}
+
+function redirectToPage2() {
+    window.location.href = "dangki.html";
+}
+
+function redirectToAdminPage() {
+    window.location.href = "admin.html"
+}

@@ -1,0 +1,68 @@
+xin chào, chào, hello, hi | Xin chào! Tôi là KDZ AI Assistant. Tôi đã sẵn sàng trả lời các câu hỏi về Toán, Lý, Hóa, Lịch sử, Văn học, Địa lý và Kiến thức thế giới của bạn! 🤖
+tạm biệt, bye | Tạm biệt! Hẹn gặp lại bạn lần sau nhé. Chúc bạn một ngày tốt lành!
+cảm ơn, thank | Không có gì! Rất vui được giúp đỡ bạn.
+// --- LỊCH SỬ VIỆT NAM ---
+vua hùng, hùng vương, dựng nước, văn lang | Các Vua Hùng là những người đã có công dựng nên nước Văn Lang - nhà nước đầu tiên trong lịch sử Việt Nam vào khoảng thế kỷ VII TCN.
+an dương vương, thục phán, âu lạc, cổ loa | Thục Phán An Dương Vương là người thống nhất Âu Việt và Lạc Việt, lập nên nước Âu Lạc, xây thành Cổ Loa.
+hai bà trưng, trưng trắc, trưng nhị | Hai Bà Trưng lãnh đạo cuộc khởi nghĩa chống quân Đông Hán vào năm 40 sau CN, là những nữ anh hùng đầu tiên của dân tộc.
+ngô quyền, bạch đằng 938, cọc gỗ | Ngô Quyền đánh tan quân Nam Hán trên sông Bạch Đằng năm 938, kết thúc hơn 1000 năm Bắc thuộc, mở ra kỷ nguyên độc lập.
+đinh bộ lĩnh, đinh tiên hoàng, 12 sứ quân | Đinh Bộ Lĩnh có công dẹp loạn 12 sứ quân, thống nhất đất nước và lập nên nước Đại Cồ Việt năm 968.
+lý thái tổ, lý công uẩn, dời đô | Lý Thái Tổ là người ban Chiếu dời đô từ Hoa Lư về Thăng Long (Hà Nội ngày nay) vào năm 1010.
+trần hưng đạo, trần quốc tuấn, nguyên mông | Hưng Đạo Vương Trần Quốc Tuấn là vị tướng tài ba lãnh đạo quân dân nhà Trần ba lần đánh bại quân xâm lược Nguyên Mông.
+lê lợi, bình định vương, lam sơn | Lê Lợi là người lãnh đạo khởi nghĩa Lam Sơn ròng rã 10 năm để quét sạch quân Minh, lập nên triều đại nhà Hậu Lê.
+quang trung, nguyễn huệ, đống đa, quân thanh | Quang Trung (Nguyễn Huệ) là vị vua tài giỏi, chỉ trong 5 ngày tết Kỷ Dậu 1789 đã đánh tan 20 vạn quân Thanh.
+chủ tịch hồ chí minh, bác hồ, 2/9 | Chủ tịch Hồ Chí Minh là lãnh tụ vĩ đại của dân tộc Việt Nam, người đọc bản Tuyên ngôn Độc lập khai sinh ra nước Việt Nam Dân chủ Cộng hòa ngày 2/9/1945.
+điện biên phủ, võ nguyên giáp, 1954 | Chiến thắng Điện Biên Phủ (7/5/1954) dưới sự chỉ huy của Đại tướng Võ Nguyên Giáp đã kết thúc 9 năm kháng chiến chống Pháp.
+30/4, giải phóng miền nam, 1975 | Ngày 30/4/1975 là ngày giải phóng miền Nam, thống nhất đất nước hoàn toàn.
+// --- VĂN HỌC ---
+nguyễn du, truyện kiều, thúy kiều | Nguyễn Du là Đại thi hào dân tộc, tác giả của Truyện Kiều - kiệt tác văn học viết bằng chữ Nôm theo thể lục bát.
+nam cao, chí phèo, lão hạc | Nam Cao là nhà văn hiện thực lớn, nổi tiếng với các nhân vật như Chí Phèo, Lão Hạc phản ánh nỗi khổ của người nông dân trước cách mạng.
+ngô tất tố, tắt đèn, chị dậu | Ngô Tất Tố nổi tiếng với tiểu thuyết 'Tắt đèn' và hình tượng chị Dậu kiên cường chống lại áp bức sưu thuế.
+tố hữu, từ ấy, việt bắc | Tố hữu là lá cờ đầu của thơ ca cách mạng Việt Nam với các tập thơ như 'Từ ấy', 'Việt Bắc', 'Gió lộng'.
+xuân diệu, thơ thơ, ông hoàng thơ tình | Xuân Diệu được mệnh danh là 'ông hoàng thơ tình' với phong cách thơ mới mẻ, nồng cháy và yêu đời.
+vũ trọng phụng, số đỏ, xuân tóc đỏ | Vũ Trọng Phụng là ông vua phóng sự đất Bắc, tác giả tiểu thuyết trào phúng 'Số đỏ'.
+hàn mạc tử, thơ điên | Hàn Mạc tử là đại diện tiêu biểu của dòng thơ siêu thực, dù cuộc đời đau thương nhưng hồn thơ vô cùng mãnh liệt.
+văn học dân gian, ca dao, tục ngữ | Văn học dân gian là những sáng tác truyền miệng của nhân dân lao động, bao gồm truyện cổ tích, ca dao, tục ngữ, thần thoại.
+--- TOÁN HỌC (ĐỊNH LÝ & CÔNG THỨC) ---
+pitago, pythagoras, tam giác vuông | Định lý Pythagoras: Trong tam giác vuông, bình phương cạnh huyền bằng tổng bình phương hai cạnh góc vuông: c^2 = a^2 + b^2.
+diện tích hình tròn, s hình tròn | Công thức: S = π × r^2 (với r là bán kính, π ≈ 3,14).
+chu vi hình tròn, c hình tròn | Công thức: C = d × π hoặc C = 2 × π × r.
+diện tích tam giác, s tam giác | Công thức: S = (1/2) × đáy × chiều cao. Hoặc công thức Heron: S = √[p(p-a)(p-b)(p-c)] với p là nửa chu vi.
+diện tích hình thang, s hình thang | Công thức: S = [(đáy lớn + đáy bé) × chiều cao] / 2.
+thể tích hình cầu, v hình cầu | Công thức: V = (4/3) × π × r^3.
+thể tích hình trụ, v hình trụ | Công thức: V = π × r^2 × h (diện tích đáy nhân chiều cao).
+phương trình bậc hai, delta, giải pt | Phương trình ax^2 + bx + c = 0. Tính Delta (Δ) = b^2 - 4ac. Nếu Δ > 0: 2 nghiệm pb. Δ = 0: nghiệm kép. Δ < 0: vn.
+định lý talet, thales | Nếu một đường thẳng song song với một cạnh của tam giác và cắt hai cạnh còn lại thì nó định ra trên hai cạnh đó những đoạn thẳng tương ứng tỷ lệ.
+đạo hàm cơ bản, đạo hàm x^n | Đạo hàm của x^n là n.x^(n-1). Đạo hàm của sin(x) là cos(x), của cos(x) là -sin(x).
+hằng đẳng thức, 7 hằng đẳng thức | 1. (a+b)^2 = a^2+2ab+b^2 | 2. (a-b)^2 = a^2-2ab+b^2 | 3. a^2-b^2 = (a-b)(a+b).
+// --- VẬT LÝ ---
+định luật ohm, ôm, điện trở | Định luật Ohm: I = U / R. Trong đó: I là cường độ dòng điện (A), U là hiệu điện thế (V), R là điện trở (Ω).
+công suất điện, p bằng gì | Công thức: P = U × I hoặc P = I^2 × R. Đơn vị là Watt (W).
+định luật 2 newton, f = ma | Định luật II Newton: Gia tốc của một vật cùng hướng với lực tác dụng. Công thức: F = m × a.
+trọng lực, p = mg | Công thức tính trọng lượng: P = m × g (với g ≈ 9,8 hoặc 10 m/s^2).
+động năng, wd | Công thức: Wd = (1/2) × m × v^2.
+thế năng, wt | Công thức: Wt = m × g × h (với h là độ cao).
+vận tốc, quãng đường, thời gian | Công thức: v = s / t. Trong đó: s là quãng đường, t là thời gian.
+thấu kính hội tụ, tiêu cự | Công thức thấu kính: 1/f = 1/d + 1/d'. Với f là tiêu cự, d là khoảng cách vật, d' là khoảng cách ảnh.
+// --- HÓA HỌC ---
+axit sunfuric, h2so4 | H2SO4 là một axit mạnh, có tính háo nước cao và oxy hóa mạnh.
+nước, h2o | H2O là hợp chất của oxy và hydro, tồn tại ở 3 thể: rắn, lỏng, khí.
+muối ăn, nacl | NaCl là Natri Clorua, thành phần chính của muối ăn.
+số mol, tính n | Công thức: n = m / M (khối lượng / khối lượng mol) hoặc n = V / 22,4 (đối với khí ở ĐKTC).
+nồng độ mol, cm | Công thức: Cm = n / V (số mol chia cho thể tích dung dịch).
+nồng độ phần trăm, c% | Công thức: C% = (m_ct / m_dd) × 100%.
+bảng tuần hoàn, nguyên tử khối h | Hydro (H): 1 | Heli (He): 4 | Cacbon (C): 12 | Nitơ (N): 14 | Oxy (O): 16 | Natri (Na): 23 | Sắt (Fe): 56.
+dãy hoạt động hóa học | K Na Ca Mg Al Zn Fe Ni Sn Pb (H) Cu Hg Ag Pt Au. (Khi Nào Cần May Áo Giáp Sắt...).
+phản ứng trung hòa | Là phản ứng giữa Axit và Bazơ tạo thành Muối và Nước. Ví dụ: HCl + NaOH -> NaCl + H2O.
+// --- THẾ GIỚI ---
+thủ đô pháp, paris | Thủ đô của Pháp là Paris, nơi có Tháp Eiffel và Bảo tàng Louvre nổi tiếng.
+thủ đô nhật bản, tokyo | Thủ đô của Nhật Bản là Tokyo, một trong những thành phố hiện đại và đông đúc nhất thế giới.
+thủ đô mỹ, washington dc | Thủ đô của Hoa Kỳ là Washington, D.C. (không phải New York như nhiều người lầm tưởng).
+người đầu tiên lên mặt trăng, armstrong | Neil Armstrong là người đầu tiên đặt chân lên Mặt Trăng vào ngày 20/7/1969.
+núi cao nhất thế giới, everest | Đỉnh Everest thuộc dãy Himalaya là đỉnh núi cao nhất thế giới so với mực nước biển (8848m).
+đại dương lớn nhất, thái bình dương | Thái Bình Dương là đại dương lớn nhất và sâu nhất trái đất.
+sông dài nhất thế giới, sông nile, sông amazon | Sông Nile (Châu Phi) thường được coi là dài nhất thế giới, tuy nhiên sông Amazon (Nam Mỹ) có lưu lượng nước lớn nhất.
+thế chiến thứ nhất, ww1 | Thế chiến I diễn ra từ năm 1914 đến 1918 giữa phe Liên minh và phe Hiệp ước.
+thế chiến thứ hai, ww2 | Thế chiến II diễn ra từ năm 1939 đến 1945, là cuộc xung đột đẫm máu nhất lịch sử nhân loại.
+vạn lý trường thành, trung quốc | Vạn Lý Trường Thành là công trình phòng thủ bằng đất và đá dài nhất thế giới tại Trung Quốc.
+kim tự tháp, ai cập | Kim tự tháp Giza ở Ai Cập là một trong bảy kỳ quan thế giới cổ đại còn tồn tại đến ngày nay.
